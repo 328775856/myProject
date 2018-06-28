@@ -9,12 +9,6 @@ export default {
   name: 'show.vue',
   components: {Bus},
   created () {
-    Bus.$on('getTarget', target => {
-      alert(target.className)
-    })
-    Bus.$off('getTarget', target => {
-      alert(target.className)
-    })
   },
   methods: {
     click (event) {

@@ -10,6 +10,8 @@
       <button @click="addAction">+</button>
       <button @click="reduceAction">-</button>
     </p>
+    <p>{{f}}</p>
+    <p>{{ff()}}</p>
   </div>
 </template>
 
@@ -26,13 +28,19 @@ export default {
   },
   computed: {
     ...mapState(['count']),
-    ...mapGetters(['count'])
+    ...mapGetters(['count']),
+    f: function () {
+      return this.$store.getters.count
+    }
   },
   methods: {
     ...mapMutations([
       'add', 'reduce'
     ]),
-    ...mapActions(['addAction', 'reduceAction'])
+    ...mapActions(['addAction', 'reduceAction']),
+    ff: function () {
+      console.log(this.$store.getters.count)
+    }
   },
   store
 }
